@@ -26,7 +26,7 @@ def work():
 @app.route("/me")
 def about():
 
-    from about import
+    from about import aboutInfo
 
     return render_template('me.html',title="Abouto",posts=posts)
 
