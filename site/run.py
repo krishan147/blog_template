@@ -17,18 +17,21 @@ posts = [
     }
 ]
 
-
 @app.route("/")
 @app.route("/work")
 def work():
     return render_template('work.html',posts=posts)
 
 @app.route("/me")
-def about():
+def me():
+    from me import meInfo
+    parsed = meInfo()
 
-    from about import aboutInfo
+    name =  parsed["name"]
+    job =  parsed["job"]
+    contact =  parsed["contact"]
 
-    return render_template('me.html',title="Abouto",posts=posts)
+    return render_template('me.html',title="Abouto",parsed=parsed)
 
 if __name__=='__main__':
     app.run(debug=True)

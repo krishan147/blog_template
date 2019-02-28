@@ -1,4 +1,6 @@
-import json
+def meInfo():
+    import json
 
-def aboutInfo():
-    print ("get stuff from about.json")
+    parsed = json.load(open('me.json')) # change to add_your_about_info_here.json
+
+    return parsed
