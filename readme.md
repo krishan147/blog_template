@@ -1,1 +1,1 @@
-A template for your blog.
+A template for your blog
