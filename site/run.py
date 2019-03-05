@@ -6,7 +6,7 @@ cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 allWork = [
             {
-                'title':"Pie Chart",
+                'title':"Pie Chart.",
                 'date':"2019-01-03",
                 "content":"chart"
             },
