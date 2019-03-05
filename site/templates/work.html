@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block content %}
+    {% for work in allWork %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ work.title }}</a>
+              <small class="text-muted">{{ work.date }}</small>
+            </div>
+            <p class="article-content">{{ work.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
