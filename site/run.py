@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_caching import Cache
 import secrets
 secret = secrets.token_hex(16)
@@ -22,12 +22,12 @@ def me():
     from me import message
     form = message()
 
-    if form.validate_on_submit():
-        flash(f'Thank you {form.name.data}.','success')
-        return redirect(url_for('work'))
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            # flash(f'Thank you {form.name.data}.','success')
+            flash(f'Thank you','success')
+            return redirect(url_for('work'))
     return render_template('me.html',title="Me",meDetails=meDetails,form=form)
 
 if __name__=='__main__':
     app.run(debug=True)
-
-
