@@ -8,11 +8,15 @@ def meInfo():
     workDets = json.load(open('me.json')) # change to add_your_about_info_here.json
     return workDets
 # Message
-class message(FlaskForm):
+class messages(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=1, max=300)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     message = TextAreaField('Message', validators=[DataRequired(), Length(min=1, max=1000)], widget=TextArea())
     submit = SubmitField('Send')
 
+
+    print (message)
+
+    print (FlaskForm)
 
 # Need to create form callback
