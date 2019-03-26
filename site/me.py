@@ -14,9 +14,4 @@ class messages(FlaskForm):
     message = TextAreaField('Message', validators=[DataRequired(), Length(min=1, max=1000)], widget=TextArea())
     submit = SubmitField('Send')
 
-
-    print (message)
-
-    print (FlaskForm)
-
 # Need to create form callback

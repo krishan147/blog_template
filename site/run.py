@@ -1,3 +1,4 @@
+from __future__ import print_function
 from flask import Flask, render_template, url_for, flash, redirect, request, make_response
 from flask_caching import Cache
 from flask_sqlalchemy import SQLAlchemy
@@ -18,31 +19,31 @@ app.config['SECRET_KEY'] = secret
 
 @app.route("/me", methods=['GET', 'POST'])
 def me():
+    import json
     from me import meInfo
     meDetails = meInfo()
     from me import messages
     forms = messages()
 
     form_submission_list = []
+
     for key, value in request.form.items():
         form_submission_list.append(value)
 
-    print (form_submission_list)
+    from gmail_send_only import run_email
+    email_address = json.load(open('me.json'))['email']
 
-
-
+    if len(form_submission_list) > 1:
+        run_email.send_email(form_submission_list,email_address)
+        form_submission_list = []
+    else:
+        pass
 
     if forms.validate_on_submit():
         flash(f'Thank you {forms.name.data}.','success')
         return redirect(url_for('work'))
 
     return render_template('me.html',title="Me",meDetails=meDetails,form=forms)
-
-
-def __repr__(self):
-    that =  f"User('{self.name}', '{self.email}','{self.message}')"
-    print (that)
-    return that
 
 if __name__=='__main__':
     app.run(debug=True)
