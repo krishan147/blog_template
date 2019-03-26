@@ -1,0 +1,6 @@
+site/me.json
+site/work.json
+site/.credentials
+site/gmail_send_only/.credentials
+site/gmail_send_only/client_secret.json
+site/gmail_send_only/token.pickle
