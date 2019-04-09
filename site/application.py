@@ -1,11 +1,13 @@
 from __future__ import print_function
 from flask import Flask, render_template, url_for, flash, redirect, request, make_response
 from flask_caching import Cache
+from flask_restful import Resource, Api
 from flask_sqlalchemy import SQLAlchemy
 import secrets
 secret = secrets.token_hex(16)
 
-app = Flask(__name__)
+application = app = Flask(__name__)
+api = Api(app)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 @app.route("/")

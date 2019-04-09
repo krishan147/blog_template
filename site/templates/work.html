@@ -8,7 +8,14 @@
               <a class="mr-2" href="#">{{ work.title }}</a>
               <small class="text-muted">{{ work.date }}</small>
             </div>
-            <p class="article-content">{{ work.content }}</p>
+
+              {% if "image" in work.content_type %}
+                <img src= "download.jpg" height="280" width="550"/>
+              {% elif "text" in  work.content_type  %}
+                <p class="article-content">{{ work.content }}</p>
+              {% endif %}
+
+              <p class="article-content">{{ work.notes }}</p>
           </div>
         </article>
     {% endfor %}

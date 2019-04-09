@@ -79,7 +79,7 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
-.fade-in{
+.fadein{
     animation: fadein 1s;
 }
 
