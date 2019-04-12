@@ -15,6 +15,7 @@ cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 def work():
     from work import EachWork
     allWork = EachWork()
+
     return render_template('work.html',allWork=allWork)
 
 app.config['SECRET_KEY'] = secret
