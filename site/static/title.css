@@ -1,0 +1,13 @@
+p{
+        -webkit-animation: color-change 4s infinite;
+    }
+
+    @-webkit-keyframes color-change {
+        0% { color: white; }
+        17% { color: black; }
+        34% { color: red; }
+        51% { color: blue; }
+        68% { color: green; }
+        85% { color: red; }
+        100% { color: white; }
+    }
