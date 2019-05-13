@@ -1,9 +1,3 @@
-# Work to run
-
-from workfiles.geographic_heatmap_fold import geographic_heatmap
-print (geographic_heatmap.buildGeoheatmap)
-
-
 def EachWork():
 
     allWork = [
@@ -16,10 +10,10 @@ def EachWork():
                     "repo": "https://github.com/krishan147/forexlive/",
                 },
         {
-            'title': "Geographic",
+            'title': "Geographic Heatmap",
             'date': "2019-04-08",
-            "content_type": "html",
-            "content": "buildGeoHeatmap.html",
+            "content_type": "frame",
+            "content": "http://geographicheatmap8.us-east-2.elasticbeanstalk.com/",
             "notes": "Made a geographic heatmap using the folium library. Data is currently sample data. Want to make one with live data. Here is a link to the repo: ",
             "repo": "https://github.com/krishan147/geographic_heatmap",
         },
@@ -32,7 +26,6 @@ def EachWork():
             "notes": "Done in Python but doesn't look as pretty in comparison to R & ggplot. Here is a link to the repo: ",
             "repo":"https://github.com/krishan147/four_dimensional_heatmap"
         }
-
 
     ]
 
