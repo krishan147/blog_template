@@ -7,54 +7,57 @@
 {% block content %}
 
     <body>
-        <h3> {{ meDetails['name'] }} </h3>
-        <h3> {{ meDetails['job'] }} </h3>
-        <h3> {{ meDetails['contact'] }} </h3>
 
-        <div class = "content-section">
-            <form method = "POST" action="">
-                {{ form.hidden_tag() }}
-                <fieldset class="form-group">
-                    <div class="form-group">
-                        {{ form.name.label(class="form-control-label") }}
+        <div class="animated bounceInRight delay-0.8s">
 
-                        {% if form.name.errors %}
-                            {{ form.name(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.name.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
+            <h3> {{ meDetails['name'] }} </h3>
+            <h3> {{ meDetails['job'] }} </h3>
+            <h3> {{ meDetails['contact'] }} </h3>
+
+            <div class = "content-section">
+                <form method = "POST" action="">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <div class="form-group">
+                            {{ form.name.label(class="form-control-label") }}
+
+                            {% if form.name.errors %}
+                                {{ form.name(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.name.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.name(class="form-control form-control-lg") }}
+                            {% endif %}
+
                         </div>
-                        {% else %}
-                            {{ form.name(class="form-control form-control-lg") }}
-                        {% endif %}
-
-                    </div>
-                    <div class="form-group">
-                        {{ form.email.label(class="form-control-label") }}
-                                                {% if form.email.errors %}
-                            {{ form.email(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.email.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
+                        <div class="form-group">
+                            {{ form.email.label(class="form-control-label") }}
+                                                    {% if form.email.errors %}
+                                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.email(class="form-control form-control-lg") }}
+                            {% endif %}
                         </div>
-                        {% else %}
-                            {{ form.email(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
+                        <div class="form-group">
+                            {{ form.message.label(class="form-control-label") }}
+                            {{ form.message(class="form-control form-control-lg") }}
+                        </div>
+                    </fieldset>
                     <div class="form-group">
-                        {{ form.message.label(class="form-control-label") }}
-                        {{ form.message(class="form-control form-control-lg") }}
+                        {{ form.submit(class="btn btn-outline-info") }}
                     </div>
-                </fieldset>
-                <div class="form-group">
-                    {{ form.submit(class="btn btn-outline-info") }}
-                </div>
-            </form>
+                </form>
+            </div>
+
         </div>
-
-
 
 
     </body>

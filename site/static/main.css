@@ -93,3 +93,35 @@ a.article-title:hover {
     }
 
 }
+
+#slider {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: blue;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+.slide-in {
+  z-index: 10; /* to position it in front of the other content */
+  position: absolute;
+  overflow: hidden; /* to prevent scrollbar appearing */
+}
+
+.slide-in.from-left {
+  left: 0;
+}
+
+.slide-in.from-left .slide-in-content {
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+}
+
+.slide-in.show .slide-in-content {
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+}
+
+
+

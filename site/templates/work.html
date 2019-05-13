@@ -2,31 +2,40 @@
 {% extends "layout.html" %}
 {% block content %}
     {% for work in allWork %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" >{{ work.title }}</a>
-              <small class="text-muted">{{ work.date }}</small>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <div class="animated bounceInLeft delay-0.8s">
+
+          <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" >{{ work.title }}</a>
+                <small class="text-muted">{{ work.date }}</small>
+              </div>
+
+                {% if "image" in work.content_type %}
+
+                  <img src="{{ work.content }}" width="700" height="520" />
+
+                {% elif "text" in  work.content_type  %}
+                  <img src="static/images/download.jpg" alt="Smiley face" height="42" width="42">
+
+                {% elif "frame" in  work.content_type  %}
+                  <iframe src="{{ work.content }}" width="700" height="520"></iframe>
+
+                {% elif "html" in  work.content_type  %}
+                  <h1>html embedded into site</h1>
+
+                {% endif %}
+
+                <p class="article-content">{{ work.notes }}</p>
+                <a href="{{ work.repo }}">{{ work.title }}</a>
             </div>
+          </article>
 
-              {% if "image" in work.content_type %}
+        </div>
 
-                <img src="{{ work.content }}" width="700" height="520" />
 
-              {% elif "text" in  work.content_type  %}
-                <img src="static/images/download.jpg" alt="Smiley face" height="42" width="42">
-
-              {% elif "frame" in  work.content_type  %}
-                <iframe src="{{ work.content }}" width="700" height="520"></iframe>
-
-              {% elif "html" in  work.content_type  %}
-                <h1>html embedded into site</h1>
-
-              {% endif %}
-
-              <p class="article-content">{{ work.notes }}</p>
-              <a href="{{ work.repo }}">{{ work.title }}</a>
-          </div>
-        </article>
     {% endfor %}
 {% endblock content %}
+
